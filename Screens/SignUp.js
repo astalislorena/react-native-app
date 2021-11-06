@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   textInput: {
-    fontFamily: "epilogue-bold",
+    fontFamily: "epilogue-regular",
     width: "80%",
     backgroundColor: Colors.bg200,
     borderRadius: 25,
