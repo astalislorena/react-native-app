@@ -1,44 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { StyleSheet, View, Image } from "react-native";
 import Colors from "../Constants/Colors";
 
-const SignUp = ({ navigation }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const signUpHandler = () => {
-    navigation.navigate("Home");
-  };
-
+const Home = () => {
   return (
     <View style={styles.container}>
       <Image source={require("../assets/logo.png")} style={styles.image} />
-      <TextInput
-        style={styles.textInput}
-        placeholder="Email"
-        placeholderTextColor={Colors.chinese}
-        selectionColor={Colors.chinese}
-        onChangeText={(text) => setEmail(text)}
-      />
-      <TextInput
-        style={styles.textInput}
-        placeholder="Password"
-        placeholderTextColor={Colors.chinese}
-        selectionColor={Colors.chinese}
-        secureTextEntry={true}
-        onChangeText={(text) => setPassword(text)}
-      />
-      <TouchableOpacity style={styles.loginBtn} onPress={signUpHandler}>
-        <Text style={styles.text}>Sign Up</Text>
-      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
@@ -84,4 +52,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SignUp;
+export default Home;
