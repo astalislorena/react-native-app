@@ -1,12 +1,27 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
+import Data from "../Consts/Data";
+import ProductCard from "./Components/ProductCard";
+import ProductDetails from "./Details";
 import Colors from "../Constants/Colors";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Image source={require("../assets/logo.png")} style={styles.image} />
+      <FlatList
+        data={Data}
+        renderItem={({ item }) => (
+          <View>
+            <ProductCard
+              item={item}
+              onPress={() => navigation.navigate("Details", item)}
+            />
+          </View>
+        )}
+        keyExtractor={(item) => item.id.toString()}
+        numColumns={2}
+      />
       <StatusBar style="auto" />
     </View>
   );

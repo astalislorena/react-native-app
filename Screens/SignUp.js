@@ -9,13 +9,33 @@ import {
   Image,
 } from "react-native";
 import Colors from "../Constants/Colors";
+import { axiosClient } from "../client";
 
 const SignUp = ({ navigation }) => {
   const [email, setEmail] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
 
-  const signUpHandler = () => {
+  const signUpRedirect = () => {
     navigation.navigate("Home");
+  };
+
+  const signUpHandler = async () => {
+    // axiosClient
+    //   .post("/consumer", {
+    //     email: email,
+    //     password: password,
+    //     firstName: firstName,
+    //     lastName: lastName,
+    //     createdTs: Date.now(),
+    //   })
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     signUpRedirect();
+    //   })
+    //   .catch((err) => console.log(err));
+    signUpRedirect();
   };
 
   return (
@@ -35,6 +55,20 @@ const SignUp = ({ navigation }) => {
         selectionColor={Colors.chinese}
         secureTextEntry={true}
         onChangeText={(text) => setPassword(text)}
+      />
+      <TextInput
+        style={styles.textInput}
+        placeholder="First Name"
+        placeholderTextColor={Colors.chinese}
+        selectionColor={Colors.chinese}
+        onChangeText={(text) => setFirstName(text)}
+      />
+      <TextInput
+        style={styles.textInput}
+        placeholder="Last Name"
+        placeholderTextColor={Colors.chinese}
+        selectionColor={Colors.chinese}
+        onChangeText={(text) => setLastName(text)}
       />
       <TouchableOpacity style={styles.loginBtn} onPress={signUpHandler}>
         <Text style={styles.text}>Sign Up</Text>

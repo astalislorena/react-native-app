@@ -3,7 +3,7 @@ import SignUp from "./Screens/SignUp";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import Navigator from "./Routes/HomeStack";
-
+require("./client");
 const getFonts = () =>
   Font.loadAsync({
     "epilogue-regular": require("./assets/fonts/Epilogue-Regular.ttf"),
